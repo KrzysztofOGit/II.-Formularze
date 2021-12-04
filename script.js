@@ -4,11 +4,13 @@ const priority = document.getElementById('priority');
 const category = document.getElementById('category');
 const btn = document.getElementById('button');
 
-let tabBooks = [];
+var tabBooks = [];
 
 //zapis po odswiezeniu istniejacego local storage
 let tempTabBooks = JSON.parse(localStorage.getItem('arrBooks'));
-tabBooks = tempTabBooks;
+if (tabBooks.length === 0){
+	tabBooks = tempTabBooks;
+}
 //wyswietlenie tablicy z ksiazkami po zaladowaniu strony
 for(let key in tabBooks){
 	let liTitle = document.createElement("li");
@@ -57,7 +59,6 @@ function addBooks(){
 	document.getElementById("showPriority").appendChild(liPriority);
 	document.getElementById("showCategory").appendChild(liCategory);
 }
-
 
 btn.addEventListener('click', function(){
 	if ((bookTitle.value.length > 1)  && (author.value.length > 2)){
