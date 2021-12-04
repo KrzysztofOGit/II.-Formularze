@@ -69,10 +69,12 @@ span.col-25{
   display: inline-block;
 	margin-top: 5px;
   width: 25%;
+	word-wrap: break-word;
 }
 span.col-20{ 
 	display: inline-block;
   width: 20%;
+	word-wrap: break-word;
 }
 
 span.col-10{ 
