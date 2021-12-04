@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Formularze</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+		  <link rel="preconnect" href="https://fonts.googleapis.com">
+  	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>	
+  	<link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+    <div id="biblioteka">
+      <div id="title">
+        Biblioteka
+      </div>
+      <div>
+        <div>    
+          <span class="col-35">
+            <label for="bookTitle">Tytuł ksiązki: </label>                        
+          </span>
+          <span class="col-65">
+            <input type="text" id="bookTitle" name="bookTitle">
+          </span>
+        </div>
+
+        <div>
+          <span class="col-35">
+            <label for="author">Autor: </label>
+          </span>
+          <span class="col-65">
+            <input type="text" id="author" name="author">
+          </span>
+        </div>
+
+        <div>
+          <span class="col-35">
+            <label for="priority">Priorytet: </label>
+          </span>
+          <span class="col-65">
+            <select id="priority" name="priority">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+            </select>
+          </span>
+        </div>
+
+				<div>
+          <span class="col-35">
+            <label for="category">Kategorie: </label>
+          </span>
+          <span class="col-65">
+            <select id="category" name="category">
+              <option value="sf">SF</option>
+              <option value="kryminal">Kryminał</option>
+              <option value="dlaDzieci">Dla dzieci</option>
+            </select>
+          </span>
+        </div>
+
+      </div>
+              
+      <div id="przycisk">
+        <input id="button" type="button" value="Dodaj książke">
+      </div>
+			
+			<div id="info"> </div>
+      
+    </div>
+		
+		<div id="result">
+			<span class="col-25">Tytuł ksiazki</span>
+			<span class="col-20">Autor</span>
+			<span class="col-5">Priorytet</span>
+			<span class="col-5">Kategoria</span>
+			<div>	
+			<span class="col-25"><ul id="showTitle"></ul></span>
+			<span class="col-20"><ul id="showAuthor"></ul></span>
+			<span class="col-10"><ul id="showPriority"></ul></span>
+			<span class="col-10"><ul id="showCategory"></ul></span>
+			</div>
+		</div>
+
+  </div>
+    <script src="script.js"></script>
+  </body>
+</html>

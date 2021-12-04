@@ -1,0 +1,111 @@
+body{
+  background-image: linear-gradient(90deg, #e8dfb5 0%, #e1f55b 35%, #e03a3d 100%);
+  font-size: 26px;
+  font-family: 'Ephesis', cursive; 
+}
+
+.container{
+  width: 95%;
+  height: 10vh;
+  margin: auto;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+#biblioteka{
+  width:650px;
+  min-height: 25vh;
+  border: 1px solid lightgray;
+  background: white;
+  margin: auto;
+  padding: 10px 25px 25px 25px; 
+  font-weight: 100px;
+  box-shadow: 10px 10px 24px 0px rgba(0,0,0,0.50);  
+  border-radius: 25px;
+}
+
+#title{
+  font-size: 26px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;  
+}
+
+#przycisk{
+  padding-top: 20px; 
+  padding-bottom: 20px; 
+  display: flex;
+  justify-content: center;  
+}
+
+input[type=button] {
+  background-color: lightgray;
+  font-family: 'Ephesis', cursive;  
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+input[type=text] {
+  background-color: lightgray;
+  font-family: 'Ephesis', cursive;  
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 5px;
+	width: 55%;
+}
+
+select {
+  background-color: lightgray;
+  font-family: 'Ephesis', cursive;  
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 5px;
+  width: 25%;
+}
+
+span.col-25{ 
+  display: inline-block;
+	margin-top: 5px;
+  width: 25%;
+}
+span.col-20{ 
+	display: inline-block;
+  width: 20%;
+}
+
+span.col-10{ 
+	display: inline-block;
+  width: 10%;
+	padding: 10px;
+}
+
+span.col-35{ 
+  display: inline-block;
+  width: 35%;
+}
+span.col-65{
+  column-width: 65%;
+}
+
+
+
+@media(max-width:640){
+  body{
+    font-size: 1rem;
+  }
+  
+  #biblioteka{
+    font-size: 1rem;
+  }
+  
+  input[type=button]{
+    font-size: 1rem;
+  }
+  
+  select{
+    font-size: 1rem;
+  }
+  
+}  
