@@ -11,53 +11,40 @@ let tempTabBooks = JSON.parse(localStorage.getItem('arrBooks'));
 if (tabBooks.length === 0){
 	tabBooks = tempTabBooks;
 }
-//wyswietlenie tablicy z ksiazkami po zaladowaniu strony
-for(let key in tabBooks){
-	let liTitle = document.createElement("li");
-	let liAuthor = document.createElement("li");
-	let liPriority = document.createElement("li");
-	let liCategory = document.createElement("li");
 
-	let showValueTitle = document.createTextNode(tabBooks[key].valueBookTitle);
-	let showValueAutor = document.createTextNode(tabBooks[key].valueAuthor);
-	let showValuePriority = document.createTextNode(tabBooks[key].valuePriority);
-	let showValueCategory = document.createTextNode(tabBooks[key].valueCategory);
+showBooks("allBooks");
 
-	liTitle.appendChild(showValueTitle);
-	liAuthor.appendChild(showValueAutor);
-	liPriority.appendChild(showValuePriority);
-	liCategory.appendChild(showValueCategory);
+//wyswietlenie listy ksiazek oraz nowej ksiazki 
+function showBooks(lastIndex){
+	let i;
+	if(lastIndex === "lastBook"){
+		i = tabBooks.length-1;
+	} 
+	if(lastIndex === "allBooks"){
+		i = 0;
+	}
 	
-	document.getElementById("showTitle").appendChild(liTitle);
-	document.getElementById("showAuthor").appendChild(liAuthor);
-	document.getElementById("showPriority").appendChild(liPriority);
-	document.getElementById("showCategory").appendChild(liCategory);
-}
+	for( i ; i < tabBooks.length; i++){
+		let liTitle = document.createElement("li");
+		let liAuthor = document.createElement("li");
+		let liPriority = document.createElement("li");
+		let liCategory = document.createElement("li");
 
-//wyswietlenie nowej ksiazki do listy
-function addBooks(){
-	let i = tabBooks.length-1;
-	let lastBook = tabBooks[i];
+		let showValueTitle = document.createTextNode(tabBooks[i].valueBookTitle);
+		let showValueAutor = document.createTextNode(tabBooks[i].valueAuthor);
+		let showValuePriority = document.createTextNode(tabBooks[i].valuePriority);
+		let showValueCategory = document.createTextNode(tabBooks[i].valueCategory);
 
-	let liTitle = document.createElement("li");
-	let liAuthor = document.createElement("li");
-	let liPriority = document.createElement("li");
-	let liCategory = document.createElement("li");
-
-	let showValueTitle = document.createTextNode(tabBooks[i].valueBookTitle);
-	let showValueAutor = document.createTextNode(tabBooks[i].valueAuthor);
-	let showValuePriority = document.createTextNode(tabBooks[i].valuePriority);
-	let showValueCategory = document.createTextNode(tabBooks[i].valueCategory);
-
-	liTitle.appendChild(showValueTitle);
-	liAuthor.appendChild(showValueAutor);
-	liPriority.appendChild(showValuePriority);
-	liCategory.appendChild(showValueCategory);
-	
-	document.getElementById("showTitle").appendChild(liTitle);
-	document.getElementById("showAuthor").appendChild(liAuthor);
-	document.getElementById("showPriority").appendChild(liPriority);
-	document.getElementById("showCategory").appendChild(liCategory);
+		liTitle.appendChild(showValueTitle);
+		liAuthor.appendChild(showValueAutor);
+		liPriority.appendChild(showValuePriority);
+		liCategory.appendChild(showValueCategory);
+		
+		document.getElementById("showTitle").appendChild(liTitle);
+		document.getElementById("showAuthor").appendChild(liAuthor);
+		document.getElementById("showPriority").appendChild(liPriority);
+		document.getElementById("showCategory").appendChild(liCategory);
+	}
 }
 
 btn.addEventListener('click', function(){
@@ -71,12 +58,11 @@ btn.addEventListener('click', function(){
 			
 			tabBooks.push(objBook);
 			localStorage.setItem('arrBooks', JSON.stringify(tabBooks));
-			addBooks();
+			showBooks("lastBook");
+			info.innerHTML="";
 						
 		} else {
 			info.innerHTML="Ksiązka nie została dodana za krótki tytuł lub autor! Prosze popraw.";
 		}
-
-
-  
+ 
 }, false );
