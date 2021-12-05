@@ -4,27 +4,42 @@ const priority = document.getElementById('priority');
 const category = document.getElementById('category');
 const btn = document.getElementById('button');
 
-var tabBooks = [];
+let tabBooks = [];
 
 //zapis po odswiezeniu istniejacego local storage
 let tempTabBooks = JSON.parse(localStorage.getItem('arrBooks'));
-if (tabBooks.length === 0){
+
+// sprawdzenie zawartosci local storage
+if (tempTabBooks){
 	tabBooks = tempTabBooks;
+} else {
+	tabBooks = [];
 }
 
 showBooks("allBooks");
 
 //wyswietlenie listy ksiazek oraz nowej ksiazki 
 function showBooks(lastIndex){
-	let i;
+	let i=0;
+	let k=0;
+	
 	if(lastIndex === "lastBook"){
-		i = tabBooks.length-1;
+		i = tabBooks.length - 1;
+		k = tabBooks.length;
 	} 
-	if(lastIndex === "allBooks"){
+
+	if(lastIndex === "allBooks" ){
 		i = 0;
 	}
 	
-	for( i ; i < tabBooks.length; i++){
+	if(tabBooks){
+		k = tabBooks.length;
+	} else {
+		k = 0;
+	}
+	
+	for( i ; i < k; i++){
+		
 		let liTitle = document.createElement("li");
 		let liAuthor = document.createElement("li");
 		let liPriority = document.createElement("li");
